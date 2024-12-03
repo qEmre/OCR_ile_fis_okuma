@@ -1,0 +1,20 @@
+﻿@model projectOCR.Models.Image
+
+<div class="container" style="margin-top: 100px;">
+    <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="flex: 1; text-align: center;">
+            <h3>Yüklenen Görüntü</h3>
+            <img src="@Model.resimUrl" alt="@Model.resimAdi" style="max-width: 100%; max-height: 500px; border: 1px solid #ddd; padding: 5px;" />
+        </div>
+
+        <div style="flex: 1;">
+            <h3>OCR Çıktısı</h3>
+            <div style="border: 1px solid #ddd; padding: 10px; background-color: #f9f9f9; white-space: pre-wrap; height: 500px; overflow-y: auto;">
+                @ViewBag.Result
+            </div>
+        </div>
+    </div>
+    <a href="/OCR/imageList" class="btn btn-info" style="width: 175px; margin-left: 1125px; margin-top: 20px;">
+        Geri Gel
+    </a>
+</div>

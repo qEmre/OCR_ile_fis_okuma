@@ -1,0 +1,52 @@
+﻿@model List<Image>
+
+<style>
+    .table th, .table td {
+        border-bottom: none;
+    }
+
+    .table td a {
+        color: #000;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+
+    .table td a:hover {
+        color: #007BFF;
+    }
+</style>
+<div class="container" style="margin-top: 150px;">
+    <h3 style="color: red">Detaylı Veri İçin Seçiniz</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Belge Adı</th>
+                <th>Belgeyi Getir</th>
+                <th>Belgeyi Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var image in Model)
+            {
+                <tr>
+                    <td>@image.resimId</td>
+                    <td>@image.resimAdi</td>
+                    <td>
+                        <form method="post" asp-controller="OCR" asp-action="OCRead" asp-route-id="@image.resimId">
+                            <button type="submit" class="btn btn-success" style="width: 125px;">Belgeyi Getir</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-controller="OCR" asp-action="Delete" asp-route-id="@image.resimId">
+                            <button type="submit" class="btn btn-danger" style="width: 125px;">Belgeyi Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/OCR/Index" class="btn btn-info" style="width: 175px; margin-left: 1125px; margin-top: 20px;">
+        Yeni Belge Yükle
+    </a>
+</div>

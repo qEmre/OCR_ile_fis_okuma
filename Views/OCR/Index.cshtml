@@ -1,0 +1,11 @@
+﻿<form method="post" asp-controller="OCR" asp-action="imageSave" enctype="multipart/form-data">
+    <label for="imageName">Dosya Adı:</label>
+    <input type="text" name="imageName" required />
+    <br>
+
+    <label for="file">Resim Seç:</label>
+    <input type="file" name="file" />
+    <br>
+
+    <button type="submit">Yükle</button>
+</form>
